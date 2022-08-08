@@ -22,7 +22,7 @@ volatile uint64_t pulse_width = 0;
 volatile bool pulse_sent = 0;
 
 void my_delay_ms(int ms){
-    while (0 < ms){  
+    while (0 < ms) {  
         _delay_ms(1);
         --ms;
     }
@@ -31,7 +31,7 @@ void my_delay_ms(int ms){
 void generate_tone(float frequency, float duration){
     int total_cycles = duration * frequency / 1000;
 
-    for(int i = 0; i < total_cycles; i++){
+    for (int i = 0; i < total_cycles; i++) {
         my_delay_ms(1000 / (2 * frequency));
         BUZZER_PORT = BUZZER_PORT | (1 << BUZZER_PIN);
         my_delay_ms(1000 / (2 * frequency));
@@ -71,7 +71,7 @@ int main() {
     TCNT1 = 0;
     sei();
 
-    while(true) {
+    while (true) {
         trigger_pulse();
         distance = pulse_width * (340.26 * 100 * 0.5) / F_CPU;
         if (distance < CLOSE_DISTANCE) {
