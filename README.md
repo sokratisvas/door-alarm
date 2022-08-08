@@ -3,7 +3,7 @@ A simple sensor based on the ATmega328P that makes a ringing sound effect each t
 
 # Schematic
 We will need :
-- Atmega328p
+- ATmega328P 
 - HC-SR04 ultrasonic distance sensor
 - Buzzer
 - 100 Ω Resistor
